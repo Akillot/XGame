@@ -1,0 +1,72 @@
+﻿<Page x:Class="XGame.Life"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Life">
+    <Page.Resources>
+        <ControlTemplate x:Key="MenuButtons" TargetType="Button">
+            <Grid x:Name="Btn">
+                <Border Background="Transparent" x:Name="Border">
+                    <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="15" VerticalAlignment="Center">
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="#909090"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontFamily" Value="Segoe UI"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="#202020"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="#999999"/>
+                                        <Setter Property="Margin" Value="0,0.6,0,0"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ClearButtons" TargetType="Button">
+            <Grid x:Name="Btn">
+                <Border Background="Transparent" x:Name="Border">
+                    <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="15" VerticalAlignment="Center">
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="#909090"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontFamily" Value="Segoe UI"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="Red"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="#999999"/>
+                                        <Setter Property="Margin" Value="0,0.6,0,0"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid>
+        <Canvas Name="GameCanvas" Background="White" />
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+            <Button Name="StartButton" Content="Start" Click="StartButton_Click" Template="{StaticResource ResourceKey=MenuButtons}"/>
+            <Button Name="StopButton" Content="Stop" Click="StopButton_Click" Template="{StaticResource ResourceKey=MenuButtons}"/>
+            <Button Name="ClearButton" Content="Clear" Click="ClearButton_Click" Template="{StaticResource ResourceKey=ClearButtons}"/>
+            <Button Name="InfoButton" Content="Info" Click="InfoButton_Click" Template="{StaticResource ResourceKey=MenuButtons}"/>
+        </StackPanel>
+    </Grid>
+</Page>

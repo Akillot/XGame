@@ -1,0 +1,54 @@
+﻿<Page x:Class="XGame.Rock_Paper_Scissors"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:XGame"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Rock_Paper_Scissors">
+
+    <Page.Resources>
+        <ControlTemplate x:Key="MenuButtons" TargetType="Button">
+            <Grid x:Name="Btn">
+                <Border Background="Transparent" x:Name="Border">
+                    <Label Content="{TemplateBinding Content}" Background="Transparent" FontSize="15" VerticalAlignment="Center">
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="#909090"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                                <Setter Property="FontFamily" Value="Segoe UI"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="#202020"/>
+                                    </DataTrigger>
+
+                                    <DataTrigger Binding="{Binding IsPressed, RelativeSource={RelativeSource AncestorType=Button}}" Value="True">
+                                        <Setter Property="Foreground" Value="#999999"/>
+                                        <Setter Property="Margin" Value="0,0.6,0,0"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+            <Button Content="Rock" Tag="Rock" Click="PlayMove" Template="{StaticResource ResourceKey=MenuButtons}"/>
+            <Button Content="Paper" Tag="Paper" Click="PlayMove" Margin="10,0" Template="{StaticResource ResourceKey=MenuButtons}"/>
+            <Button Content="Scissors" Tag="Scissors" Click="PlayMove" Template="{StaticResource ResourceKey=MenuButtons}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,40,20">
+            <Button Content="Info" Tag="Rock" Click="Info_Click" Template="{StaticResource ResourceKey=MenuButtons}"/>
+        </StackPanel>
+    </Grid>
+</Page>

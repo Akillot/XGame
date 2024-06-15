@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove=".XGame.png" />
+    <None Remove=".XLogo_transparent.png" />
+    <None Remove="LogoTypeXGame.png" />
+    <None Remove="LogoXGame.png" />
+    <None Remove="LogoXGameSem_Work.png" />
+    <None Remove="LogoXGameSem_Work_1.1.png" />
+    <None Remove="LogoXGame_Sem.png" />
+    <None Remove="UNI_ANOTHERLOGO.png" />
+    <None Remove="UNI_Logo.png" />
+    <None Remove="View\.XGame.png" />
+    <None Remove="View\fist.png" />
+    <None Remove="View\hand-paper.png" />
+    <None Remove="View\scissors.png" />
+    <None Remove="View\twitter.png" />
+    <None Remove="View\VspjCustomButton.png" />
+    <None Remove="View\VspjCustomLogoButton.png" />
+    <None Remove="xGame.png" />
+    <None Remove="XGAME_LOGO.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="View\.XGame.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+
+</Project>
